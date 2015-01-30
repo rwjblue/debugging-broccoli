@@ -6,6 +6,8 @@ var app = new Funnel('app', {
   destDir: 'my-app-name'
 });
 
-var transpiledTree = new ES2015(app);
+var loggedApp = log(app, { output: 'tree', label: 'my-app-name tree' });
+
+var transpiledTree = new ES2015(loggedApp);
 
 module.exports = transpiledTree;
