@@ -1,13 +1,13 @@
 var Funnel = require('broccoli-funnel');
 var ES2015 = require('broccoli-es6modules');
-var log = require('broccoli-stew').log;
+var debug = require('broccoli-stew').debug;
 
 var app = new Funnel('app', {
   destDir: 'my-app-name'
 });
 
-var loggedApp = log(app, { output: 'tree', label: 'my-app-name tree' });
+var debugApp = debug(app, { name: 'my-app-name' });
 
-var transpiledTree = new ES2015(loggedApp);
+var transpiledTree = new ES2015(debugApp);
 
 module.exports = transpiledTree;
